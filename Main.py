@@ -138,20 +138,37 @@ def is_sorted(nums):
 # Output: [1, 2, 3]
 
 def remove_duplicates(nums):
-    pass
+    seen = set()
+    result = []
+
+    for num in nums:
+        if num not in seen:
+            seen.add(num)
+            result.append(num)
+    
+    return result
+
+# ==============================
+# SET PRACTICE PROBLEMS
+# ==============================
 
 
-
-# 8️⃣ MOVE ZEROS TO END
-# Move all zeros to the end of the list.
-# Keep the relative order of non-zero numbers.
+# 1️⃣ CONTAINS DUPLICATE
+# Return True if any value appears at least twice.
+# Return False if all elements are unique.
 #
 # Example:
-# Input:  [0, 1, 0, 3, 12]
-# Output: [1, 3, 12, 0, 0]
+# [1, 2, 3, 1] → True
+# [1, 2, 3, 4] → False
 
-def move_zeros(nums):
-    
+def contains_duplicate(nums):
+    seen = set()
+    for num in nums:
+        if num in seen:
+            return True
+        seen.add(num)
+    return False
+
 
 
 
@@ -166,6 +183,12 @@ def move_zeros(nums):
 # Output: [0, 1]
 
 def two_sum(nums, target):
-    pass
+    seen = {}
 
+    for index, num in enumerate(nums):
+        complement = target - num
 
+        if complement in seen:
+            return [seen[complement], index]
+
+        seen[num] = index
