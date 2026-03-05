@@ -224,3 +224,36 @@ def two_difference(nums, target):
         if complement in seen:
             return [seen[complement], index]
         seen[num] = index
+        
+def diagonalDifference(arr):
+
+    n = len(arr)
+
+    left = 0
+    right = 0
+
+    for i in range(n):
+        left += arr[i][i]
+        right += arr[i][n - 1 - i]
+
+    return abs(left - right)
+
+# Write a function that returns the sum of 
+# all numbers in a matrix.
+
+def matrixTotal(arr):
+    
+    total = 0
+    for row in arr:
+        for num in row:
+            total+=num
+            
+def lastColumnMatrix(arr):
+
+    total = 0
+
+    for row in arr:
+        total += row[-1]
+
+    return total
+            
