@@ -1,4 +1,4 @@
-# Java-practice
+# python practice
 
 ## Purpose of this personal repository
 
