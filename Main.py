@@ -294,3 +294,15 @@ def getRowCol(row, col, arr):
 
 def getRowColumn(row, col, arr):
     return arr[row, col]
+
+def firstDupe(nums):
+    existing = set()
+    
+    for num in nums:
+        if num in existing:
+            return num
+        else: existing.add(num)
+        
+def howManyWords(sentence):
+    return len(sentence.split())
+    
