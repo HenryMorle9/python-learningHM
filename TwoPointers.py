@@ -185,15 +185,82 @@ def move_zeros(nums):
     for scan in range(len(nums)):
         
         if scan != 0:
-            nums[store] = nums[scan]
-            nums[scan] = nums[store]
+            nums[store], nums[scan] = nums[scan], nums[store]
+             
             store +=1
             
     return nums
         
         
+# Remove Duplicates from Sorted Array
+#
+# Given a sorted array of integers, remove the duplicates in-place.
+# Each unique number should appear only once.
+#
+# Return the number of unique elements.
+#
+# Example:
+# Input:  [1,1,2]
+# Output: 2
+# Array becomes: [1,2,_]
+#
+# Example:
+# Input:  [0,0,1,1,1,2,2,3]
+# Output: 4
+# Array becomes: [0,1,2,3,_,_,_,_]
+#
+# Rules:
+# - The array is already sorted
+# - Modify the array in place
+# - Use O(1) extra space
+#
+# Pattern:
+# slow pointer → last unique number
+# fast pointer → scanning the array
+#
+# When we see a new number, move it forward.
 
+def remove_duplicatez(nums):
+    
+    slow = 0
+    
+    for scanner in range(1, len(nums)):
+        if nums[scanner] != nums[slow]:
+            slow+=1
+            nums[slow]=nums[scanner]
+    return slow +1
 
+# Keep Only Even Numbers
+#
+# Given an array of integers, move all EVEN numbers
+# to the front of the array in-place.
+#
+# Return the number of even numbers.
+#
+# The order of the even numbers should stay the same.
+#
+# Example:
+# Input:
+# nums = [3,4,7,2,9,6]
+#
+# Output:
+# return = 3
+#
+# nums becomes:
+# [4,2,6,_,_,_]
+#
+# Explanation:
+# Only the first 3 positions matter.
+
+def keep_evens(nums):
+    slow = 0
+    
+    for fast in range(len(nums)):
+        if nums[fast]%2 == 0:
+            nums[slow], nums[fast] = nums[fast], nums[slow]
+            slow+=1
+    return slow
+            
 # ------------------------------------------------------------
 # 4) Two Sum II (Sorted Array)
 # ------------------------------------------------------------
