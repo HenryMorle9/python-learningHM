@@ -168,7 +168,30 @@ def is_array_palindrome(nums):
 # - In-place overwriting or swapping logic
 # ------------------------------------------------------------
 def move_zeros(nums):
-    pass
+    
+    # scan = 0
+    # store = len(nums)-1
+    
+    # while scan < store:
+    #     if nums[scan] == 0:
+    #         nums[scan] = nums[store]
+    #         nums[store] = 0
+    #         store -=1 
+    #     scan +=1
+    # return nums    
+
+    store = 0
+    
+    for scan in range(len(nums)):
+        
+        if scan != 0:
+            nums[store] = nums[scan]
+            nums[scan] = nums[store]
+            store +=1
+            
+    return nums
+        
+        
 
 
 # ------------------------------------------------------------
